@@ -24,8 +24,8 @@ namespace Airport.Data_test
     }
     class Prerules
     {
-        public Dictionary<FlightInfo,StandInfo> finishTask;
+        public Dictionary<FlightInfo,StandInfo> preflightcode;
         public Dictionary<StandInfo, StandInfo> sCAdjCon;
-        public Dictionary<string,int[]> match;
+        public Dictionary<string,int[]> Stnd_fl_type;
     }
 }

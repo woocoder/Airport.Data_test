@@ -83,7 +83,7 @@ namespace Airport.Data_test
         static Prerules readRules(OrclDBManager orclDB_in, List<StandInfo> standList, List<FlightInfo> flightList)
         {
             Prerules preRules = new Prerules();
-            preRules.match = new Dictionary<string, int[]>();
+            preRules.Stnd_fl_type = new Dictionary<string, int[]>();
 
             try
             {
@@ -115,7 +115,7 @@ namespace Airport.Data_test
                             match_stand[j] = 0;
                         }
                     }
-                    preRules.match.Add(match_flighCode, match_stand);
+                    preRules.Stnd_fl_type.Add(match_flighCode, match_stand);
                     a_stand.Clear();
                 }
             }
@@ -137,20 +137,20 @@ namespace Airport.Data_test
 
             List<FlightInfo> flightList = readFlights(orclDB_in, a,b);
             List<StandInfo> standList = readStands(orclDB_in);
-
+            
             Prerules preRules = readRules(orclDB_in, standList, flightList);
-            /*
-            foreach (string key in preRules.match.Keys)
+            
+            foreach (string key in preRules.Stnd_fl_type.Keys)
             {
                 Console.Write(key+": ");
                 //Console.Write("key :{0} value:{1}\n", key, preRules.match[key][1]);
-                for (int i = 0; i != preRules.match[key].Length; i++)
+                for (int i = 0; i != preRules.Stnd_fl_type[key].Length; i++)
                 {
-                    Console.Write(preRules.match[key][i] + " ");
+                    Console.Write(preRules.Stnd_fl_type[key][i] + " ");
 
                 }
                 Console.Write("\n");
-            }*/
+            }
             /*
             int count = 0;
             foreach (int i in preRules.match["1033544547"])
